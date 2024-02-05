@@ -62,18 +62,18 @@ def filter_currency_rates(exchange_rates, selected_currencies):
 
 async def main():
     if len(sys.argv) < 2:
-        print("Usage: python main2.py <number_of_days> [<currency1> <currency2> ...]")
+        print("Еror usage (example): python main.py <number_of_days>")
         sys.exit(1)
 
     try:
         days = int(sys.argv[1])
         selected_currencies = [currency.upper() for currency in sys.argv[2:]] or ['EUR', 'USD']
     except ValueError:
-        print("Invalid input. Please provide a valid number of days and currencies.")
+        print("Invalid input. Please provide int number of days.")
         sys.exit(1)
 
     if days > 10:
-        print("Number of days should not exceed 10.")
+        print("The number of days should not exceed 10.")
         sys.exit(1)
 
     api = PrivatBankAPI()
